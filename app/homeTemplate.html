@@ -1,0 +1,60 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">BlogBuster</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
+    aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Nueva entrada</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<div class="container">
+
+  <br>
+  <div class="row">
+    <nav aria-label="Page navigation example  col">
+      <ul class="pagination">
+        <li class="page-item" ng-repeat="pagina in paginas"><a class="page-link" href="#!/{{pagina}}/{{filasPagina}}">{{pagina}}</a></li>
+      </ul>
+    </nav>
+    <div class="col-md-auto ml-auto">
+      <p>Resultados:</p>
+    </div>
+    <select id="inputState" class="form-control col col-lg-2" ng-model="mySelect" ng-change="showSelectValue(mySelect)">
+      <option selected>10</option>
+      <option>25</option>
+      <option>50</option>
+    </select>
+
+  </div>
+  <br>
+  <div class="row">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">id</th>
+          <th scope="col">Titulo</th>
+          <th scope="col">Cuerpo</th>
+          <th scope="col">Etiquetas</th>
+          <th scope="col">Fecha publicación</th>
+          <th scope="col">Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="filas in tablaPosts">
+          <th scope="row">{{filas.Id}}</th>
+          <td>{{filas.Titulo}}</td>
+          <td>{{filas.Cuerpo}}</td>
+          <td>{{filas.Etiquetas}}</td>
+          <td>{{filas.Fecha}}</td>
+          <td>(Futuros enlaces)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>

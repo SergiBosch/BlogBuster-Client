@@ -1,3 +1,3 @@
-var miModulo = angular.module("MiAngularApp",[
+var miModulo = angular.module("BlogBusterApp",[
     'ngRoute'
 ])
