@@ -6,9 +6,9 @@ var miControlador = miModulo.controller(
         $http({
             method: "GET",
             withCredentials: true,
-            url: "http://localhost:8081/blogbuster/json?ob=post&op=get&id="+$scope.id
+            url: "http://localhost:8081/blogbuster/json?ob=post&op=get&id=" + $scope.id
         }).then(function (response) {
-            $scope.post = response.data.response;            
+            $scope.post = response.data.response;
         });
     }]
 )

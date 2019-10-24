@@ -10,7 +10,7 @@ var miControlador = miModulo.controller(
             url: "http://localhost:8081/blogbuster/json?ob=post&op=getcount"
         }).then(function (response) {
             totalPages = Math.ceil(response.data.message / $scope.filasPagina);
-            paginacion(totalPages);            
+            paginacion(totalPages);
         });
 
         $http({
@@ -32,26 +32,26 @@ var miControlador = miModulo.controller(
                     $scope.paginas.push(i);
                 }
 
-                if (i == $scope.paginaActual && i-2> 1) {
+                if (i == $scope.paginaActual && i - 2 > 1) {
                     // $scope.botonera.push(0);
-                    $scope.paginas.push(i-2);
+                    $scope.paginas.push(i - 2);
                 }
 
-                if (i == $scope.paginaActual && i-1> 1) {
+                if (i == $scope.paginaActual && i - 1 > 1) {
                     // $scope.botonera.push(0);
-                    $scope.paginas.push(i-1);
+                    $scope.paginas.push(i - 1);
                 }
 
                 if (i == $scope.paginaActual && i != 1) {
                     $scope.paginas.push(i);
                 }
-                if (i == $scope.paginaActual && i+1< totalPages) {
-                    $scope.paginas.push(i+1);
+                if (i == $scope.paginaActual && i + 1 < totalPages) {
+                    $scope.paginas.push(i + 1);
                     // $scope.botonera.push(0);
                 }
 
-                if (i == $scope.paginaActual && i+2< totalPages) {
-                    $scope.paginas.push(i+2);
+                if (i == $scope.paginaActual && i + 2 < totalPages) {
+                    $scope.paginas.push(i + 2);
                     // $scope.botonera.push(0);
                 }
 
