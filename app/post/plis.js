@@ -1,5 +1,5 @@
 var miControlador = miModulo.controller(
-    "homeController",
+    "postPlistController",
     ['$scope', '$http', '$routeParams', '$window', function ($scope, $http, $routeParams, $window) {
         $scope.paginaActual = $routeParams.page;
         $scope.filasPagina = $routeParams.pageRows;
@@ -22,7 +22,7 @@ var miControlador = miModulo.controller(
         });
 
         $scope.showSelectValue = function (mySelect) {
-            $window.location.href = "/baseAngularJS2/#!/1/" + mySelect;
+            $window.location.href = "/blogbusterclient/BlogBuster-Client/#!/post/plist/1/" + mySelect;
         }
 
         paginacion = function (totalPages) {
@@ -32,6 +32,10 @@ var miControlador = miModulo.controller(
                     $scope.paginas.push(i);
                 }
 
+                if (i == $scope.paginaActual && i-2> 1) {
+                    // $scope.botonera.push(0);
+                    $scope.paginas.push(i-2);
+                }
 
                 if (i == $scope.paginaActual && i-1> 1) {
                     // $scope.botonera.push(0);
@@ -43,6 +47,11 @@ var miControlador = miModulo.controller(
                 }
                 if (i == $scope.paginaActual && i+1< totalPages) {
                     $scope.paginas.push(i+1);
+                    // $scope.botonera.push(0);
+                }
+
+                if (i == $scope.paginaActual && i+2< totalPages) {
+                    $scope.paginas.push(i+2);
                     // $scope.botonera.push(0);
                 }
 

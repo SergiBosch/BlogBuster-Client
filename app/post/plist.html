@@ -18,17 +18,17 @@
   <div class="row">
     <nav aria-label="Page navigation example  col">
       <ul class="pagination">
-        <li class="page-item" ng-repeat="pagina in paginas"><a class="page-link"
-            href="#!/{{pagina}}/{{filasPagina}}">{{pagina}}</a></li>
+        <li class="page-item" ng-repeat="pagina in paginas" ng-class="{'active':(paginaActual==pagina)}"><a class="page-link"
+            href="#!/post/plist/{{pagina}}/{{filasPagina}}">{{pagina}}</a></li>
       </ul>
     </nav>
     <div class="col-md-auto ml-auto">
       <p>Resultados:</p>
     </div>
     <select id="inputState" class="form-control col col-lg-2" ng-model="mySelect" ng-change="showSelectValue(mySelect)">
-      <option selected>10</option>
-      <option>25</option>
-      <option>50</option>
+      <option ng-selected="filasPagina == '10'">10</option>
+      <option ng-selected="filasPagina == '25'">25</option>
+      <option ng-selected="filasPagina == '50'">50</option>
     </select>
 
   </div>
@@ -52,7 +52,14 @@
           <td>{{filas.Cuerpo}}</td>
           <td>{{filas.Etiquetas}}</td>
           <td>{{filas.Fecha}}</td>
-          <td>(Futuros enlaces)</td>
+          <td>
+              <div class="btn-group btn-group-toggle" data-toggle="buttons">
+              <a href="#!/post/view/{{filas.Id}}" class="btn btn-primary btn-sm" role="button" aria-pressed="true">Ver</a>
+              <a href="#!/post/edit/{{filas.Id}}" class="btn btn-primary btn-sm" role="button" aria-pressed="true">Mod</a>
+              <a href="#!/post/remove/{{filas.Id}}" class="btn btn-primary btn-sm" role="button" aria-pressed="true">Del</a>
+              </div>
+
+          </td>
         </tr>
       </tbody>
     </table>
