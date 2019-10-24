@@ -1,38 +1,55 @@
 var miControlador = miModulo.controller(
     "homeController",
     ['$scope', '$http', '$routeParams', '$window', function ($scope, $http, $routeParams, $window) {
-        var page = $routeParams.page
-        var pageRows = $routeParams.pageRows
-        $scope.paginaActual = page;
-        $scope.filasPagina = pageRows;
+        $scope.paginaActual = $routeParams.page;
+        $scope.filasPagina = $routeParams.pageRows;
 
         $http({
             method: "GET",
             withCredentials: true,
             url: "http://localhost:8081/blogbuster/json?ob=post&op=getcount"
         }).then(function (response) {
-            var totalRows = response.data.message;
-            var totalPages = totalRows / pageRows;
-            if (totalRows % pageRows > 0) {
-                totalPages += 1;
-            }
-            var arrayPaginas = []
-            for (i = 1; i <= totalPages; i++) {
-                arrayPaginas.push(i);
-            }
-            $scope.paginas = arrayPaginas;
+            totalPages = Math.ceil(response.data.message / $scope.filasPagina);
+            paginacion(totalPages);            
         });
 
         $http({
             method: "GET",
             withCredentials: true,
-            url: "http://localhost:8081/blogbuster/json?ob=post&op=getpages&page=" + page + "&rowPage=" + pageRows
+            url: "http://localhost:8081/blogbuster/json?ob=post&op=getpages&page=" + $scope.paginaActual + "&rowPage=" + $scope.filasPagina
         }).then(function (response) {
             $scope.tablaPosts = response.data.message;
         });
 
         $scope.showSelectValue = function (mySelect) {
-            $window.location.href = "/blogbusterclient/BlogBuster-Client/#/1/" + mySelect;
+            $window.location.href = "/baseAngularJS2/#!/1/" + mySelect;
+        }
+
+        paginacion = function (totalPages) {
+            $scope.paginas = [];
+            for (i = 1; i <= totalPages; i++) {
+                if (i == 1) {
+                    $scope.paginas.push(i);
+                }
+
+
+                if (i == $scope.paginaActual && i-1> 1) {
+                    // $scope.botonera.push(0);
+                    $scope.paginas.push(i-1);
+                }
+
+                if (i == $scope.paginaActual && i != 1) {
+                    $scope.paginas.push(i);
+                }
+                if (i == $scope.paginaActual && i+1< totalPages) {
+                    $scope.paginas.push(i+1);
+                    // $scope.botonera.push(0);
+                }
+
+                if (i == totalPages && i != 1 && i != $scope.paginaActual) {
+                    $scope.paginas.push(i);
+                }
+            }
         }
     }]
 )
