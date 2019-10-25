@@ -47,18 +47,18 @@
       </thead>
       <tbody>
         <tr ng-repeat="filas in tablaPosts">
-          <th scope="row">{{filas.Id}}</th>
-          <td>{{filas.Titulo}}</td>
-          <td>{{filas.Cuerpo}}</td>
-          <td>{{filas.Etiquetas}}</td>
-          <td>{{filas.Fecha}}</td>
+          <th scope="row">{{filas.id}}</th>
+          <td>{{filas.titulo}}</td>
+          <td>{{filas.cuerpo}}</td>
+          <td>{{filas.etiquetas}}</td>
+          <td>{{filas.fecha}}</td>
           <td>
             <div class="btn-group btn-group-toggle" data-toggle="buttons">
-              <a href="#!/post/view/{{filas.Id}}" class="btn btn-primary btn-sm" role="button"
+              <a href="#!/post/view/{{filas.id}}" class="btn btn-primary btn-sm" role="button"
                 aria-pressed="true">Ver</a>
-              <a href="#!/post/edit/{{filas.Id}}" class="btn btn-primary btn-sm" role="button"
+              <a href="#!/post/edit/{{filas.id}}" class="btn btn-primary btn-sm" role="button"
                 aria-pressed="true">Mod</a>
-              <a href="#!/post/remove/{{filas.Id}}" class="btn btn-primary btn-sm" role="button"
+              <a href="#!/post/remove/{{filas.id}}" class="btn btn-primary btn-sm" role="button"
                 aria-pressed="true">Del</a>
             </div>
 

@@ -1,5 +1,5 @@
 var miControlador = miModulo.controller(
-    "postPlistController",
+    "postHomeController",
     ['$scope', '$http', '$routeParams', '$window', function ($scope, $http, $routeParams, $window) {
         $scope.paginaActual = $routeParams.page;
         $scope.filasPagina = $routeParams.pageRows;
@@ -18,12 +18,8 @@ var miControlador = miModulo.controller(
             withCredentials: true,
             url: "http://localhost:8081/blogbuster/json?ob=post&op=getpage&page=" + $scope.paginaActual + "&rpp=" + $scope.filasPagina
         }).then(function (response) {
-            $scope.tablaPosts = response.data.response;
+            $scope.posts = response.data.response;
         });
-
-        $scope.showSelectValue = function (mySelect) {
-            $window.location.href = "/baseAngularJS2/#!/post/plist/1/" + mySelect;
-        }
 
         paginacion = function (totalPages) {
             $scope.paginas = [];
