@@ -17,12 +17,12 @@ var miControlador = miModulo.controller(
                 withCredentials: true,
                 url: "http://localhost:8081/blogbuster/json?ob=post&op=remove&id=" + $scope.id
             }).then(function (response) {
-                $window.location.href = "/baseAngularJS2/#!/post/plist/1/10";
+                $window.location.href = "/blogbusterclient/BlogBuster-Client/#!/post/plist/1/10";
             });
         }
 
         $scope.volver = function () {
-            $window.location.href = "/baseAngularJS2/#!/post/plist/1/10";
+            $window.location.href = "/blogbusterclient/BlogBuster-Client/#!/post/plist/1/10";
         }
     }]
 )
