@@ -32,7 +32,7 @@ var miControlador = miModulo.controller(
                     $scope.botonera.push(i);
                 } else if (i == $scope.numPaginas) {
                     $scope.botonera.push(i);
-                } else if (i == ($scope.paginaActual - vecindad) || i == ($scope.paginaActual + vecindad)){
+                } else if (i == ($scope.paginaActual - vecindad) || i == ($scope.paginaActual + vecindad)) {
                     $scope.botonera.push('...');
                 }
             }

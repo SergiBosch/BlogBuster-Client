@@ -6,7 +6,7 @@
   <div class="row justify-content-center">
     <nav aria-label="Page navigation example  col center-block">
       <ul class="pagination">
-          <li class="page-item" ng-class="{'active':(paginaActual==p)}" ng-disabled="p == '...'"
+        <li class="page-item" ng-class="{'active':(paginaActual==p)}" ng-disabled="p == '...'"
           ng-repeat="p in botonera track by $index">
           <a class="page-link" ng-if="p != '...'" href="#!/home/{{ p }}/{{ rppActual }}">{{ p }}</a>
           <span class="page-link" ng-if="p == '...'">{{ p }}</span>
@@ -35,11 +35,11 @@
     <br>
   </div>
   <div class="row justify-content-center">
-      <nav aria-label="Page navigation example  col center-block">
-        <ul class="pagination">
-          <li class="page-item" ng-repeat="pagina in paginas" ng-class="{'active':(paginaActual==pagina)}"><a
-              class="page-link" href="#!/home/{{pagina}}/{{filasPagina}}">{{pagina}}</a></li>
-        </ul>
-      </nav>
-    </div>
+    <nav aria-label="Page navigation example  col center-block">
+      <ul class="pagination">
+        <li class="page-item" ng-repeat="pagina in paginas" ng-class="{'active':(paginaActual==pagina)}"><a
+            class="page-link" href="#!/home/{{pagina}}/{{filasPagina}}">{{pagina}}</a></li>
+      </ul>
+    </nav>
+  </div>
 </div>
