@@ -17,8 +17,9 @@ var miControlador = miModulo.controller(
         $scope.modificar = function () {
             $http({
                 method: "POST",
-                data: { id: $scope.id, titulo: $scope.titulo, cuerpo: $scope.cuerpo, etiquetas: $scope.etiquetas, fecha: $scope.fecha},
+                data: "data={\"id\": "+$scope.id+", \"titulo\": \""+$scope.titulo+"\", \"cuerpo\": \""+$scope.cuerpo+"\", \"etiquetas\": \""+$scope.etiquetas+"\", \"fecha\": \""+$scope.fecha+"\"}",
                 withCredentials: true,
+                headers: {'Content-Type': 'application/x-www-form-urlencoded'},
                 url: "http://localhost:8081/blogbuster/json?ob=post&op=update"
             }).then(function (response) {
                 $window.location.href = "/blogbusterclient/BlogBuster-Client/#!/post/plist/1/10";

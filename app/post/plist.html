@@ -27,11 +27,46 @@
     <table class="table">
       <thead>
         <tr>
-          <th scope="col">id</th>
-          <th scope="col">Titulo</th>
-          <th scope="col">Cuerpo</th>
-          <th scope="col">Etiquetas</th>
-          <th scope="col">Fecha publicación</th>
+          <th scope="col">id
+            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+              <a href="#!/post/plist/{{ paginaActual }}/{{ rppActual }}/id/asc" class="btn btn-primary btn-sm" role="button"
+                aria-pressed="true"><i class="fas fa-sort-up"></i></i></a>
+              <a href="#!/post/plist/{{ paginaActual }}/{{ rppActual }}/id/desc" class="btn btn-primary btn-sm" role="button"
+                aria-pressed="true"><i class="fas fa-sort-down"></i></i></a>
+            </div>
+          </th>
+          <th scope="col">Titulo
+            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+              <a href="#!/post/plist/{{ paginaActual }}/{{ rppActual }}/titulo/asc" class="btn btn-primary btn-sm" role="button"
+                aria-pressed="true"><i class="fas fa-sort-up"></i></i></a>
+              <a href="#!/post/plist/{{ paginaActual }}/{{ rppActual }}/titulo/desc" class="btn btn-primary btn-sm" role="button"
+                aria-pressed="true"><i class="fas fa-sort-down"></i></i></a>
+            </div>
+          </th>
+          <th scope="col">Cuerpo
+            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+              <a href="#!/post/plist/{{ paginaActual }}/{{ rppActual }}/cuerpo/asc" class="btn btn-primary btn-sm" role="button"
+                aria-pressed="true"><i class="fas fa-sort-up"></i></i></a>
+              <a href="#!/post/plist/{{ paginaActual }}/{{ rppActual }}/cuerpo/desc" class="btn btn-primary btn-sm" role="button"
+                aria-pressed="true"><i class="fas fa-sort-down"></i></i></a>
+            </div>
+          </th>
+          <th scope="col">Etiquetas
+            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+              <a href="#!/post/plist/{{ paginaActual }}/{{ rppActual }}/etiquetas/asc" class="btn btn-primary btn-sm" role="button"
+                aria-pressed="true"><i class="fas fa-sort-up"></i></i></a>
+              <a href="#!/post/plist/{{ paginaActual }}/{{ rppActual }}/etiquetas/desc" class="btn btn-primary btn-sm" role="button"
+                aria-pressed="true"><i class="fas fa-sort-down"></i></i></a>
+            </div>
+          </th>
+          <th scope="col">Fecha publicación
+            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+              <a href="#!/post/plist/{{ paginaActual }}/{{ rppActual }}/fecha/asc" class="btn btn-primary btn-sm" role="button"
+                aria-pressed="true"><i class="fas fa-sort-up"></i></i></a>
+              <a href="#!/post/plist/{{ paginaActual }}/{{ rppActual }}/fecha/desc" class="btn btn-primary btn-sm" role="button"
+                aria-pressed="true"><i class="fas fa-sort-down"></i></i></a>
+            </div>
+          </th>
           <th scope="col">Acciones</th>
         </tr>
       </thead>
@@ -45,11 +80,11 @@
           <td>
             <div class="btn-group btn-group-toggle" data-toggle="buttons">
               <a href="#!/post/view/{{filas.id}}" class="btn btn-primary btn-sm" role="button"
-                aria-pressed="true">Ver</a>
+                aria-pressed="true"><i class="fas fa-eye"></i></a>
               <a href="#!/post/edit/{{filas.id}}" class="btn btn-primary btn-sm" role="button"
-                aria-pressed="true">Mod</a>
+                aria-pressed="true"><i class="fas fa-edit"></i></a>
               <a href="#!/post/remove/{{filas.id}}" class="btn btn-primary btn-sm" role="button"
-                aria-pressed="true">Del</a>
+                aria-pressed="true"><i class="fas fa-trash-alt"></i></a>
             </div>
 
           </td>
