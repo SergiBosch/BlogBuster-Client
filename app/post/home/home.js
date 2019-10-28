@@ -11,6 +11,11 @@ var miControlador = miModulo.controller(
             url: "http://localhost:8081/blogbuster/json?ob=post&op=getcount"
         }).then(function (response) {
             $scope.numPaginas = Math.ceil(response.data.response / $scope.rppActual);
+            if ($scope.paginaActual < 1) {
+                $window.location.href = "/blogbusterclient/BlogBuster-Client/#!/home/1/" + $scope.rppActual;
+            } else if ($scope.paginaActual > $scope.numPaginas) {
+                $window.location.href = "/blogbusterclient/BlogBuster-Client/#!/home/" + $scope.numPaginas + "/" + $scope.rppActual;
+            }
             paginacion(2);
         });
 
