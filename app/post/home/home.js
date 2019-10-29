@@ -1,15 +1,12 @@
 var miControlador = miModulo.controller(
     "postHomeController",
-    ['$scope', '$http', '$routeParams', '$window', function ($scope, $http, $routeParams, $window) {
+    ['$scope', '$http', '$routeParams', '$window','promesasService', function ($scope, $http, $routeParams, $window, promesasService) {
         $scope.paginaActual = parseInt($routeParams.page);
         $scope.rppActual = parseInt($routeParams.pageRows);
         $scope.controller = "home";
 
-        $http({
-            method: "GET",
-            withCredentials: true,
-            url: "http://localhost:8081/blogbuster/json?ob=post&op=getcount"
-        }).then(function (response) {
+        promesasService.ajaxGetCount('post')
+        .then(function (response) {
             $scope.numPaginas = Math.ceil(response.data.response / $scope.rppActual);
             if ($scope.paginaActual < 1) {
                 $window.location.href = "/blogbusterclient/BlogBuster-Client/#!/home/1/" + $scope.rppActual;
@@ -19,11 +16,8 @@ var miControlador = miModulo.controller(
             paginacion(2);
         });
 
-        $http({
-            method: "GET",
-            withCredentials: true,
-            url: "http://localhost:8081/blogbuster/json?ob=post&op=getpage&page=" + $scope.paginaActual + "&rpp=" + $scope.rppActual
-        }).then(function (response) {
+        promesasService.ajaxGetPage('post',$scope.paginaActual, $scope.rppActual)
+        .then(function (response) {
             $scope.posts = response.data.response;
         });
 
