@@ -6,6 +6,8 @@ miModulo.config(['$routeProvider', function ($routeProvider) {
     $routeProvider.when('/post/edit/:id', { templateUrl: 'app/post/edit/edit.html', controller: 'postEditController' })
     $routeProvider.when('/post/new', { templateUrl: 'app/post/new/new.html', controller: 'postNewController' })
 
+    $routeProvider.when('/login', { templateUrl: 'app/login/login.html', controller: 'loginController' })
+
     $routeProvider.otherwise({ redirectTo: '/home/1/10' })
 
 
