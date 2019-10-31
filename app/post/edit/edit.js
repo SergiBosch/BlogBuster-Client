@@ -5,11 +5,11 @@ var miControlador = miModulo.controller(
 
         promesasService.ajaxGet('post', $scope.id)
                 .then(function (response) {
-                    $scope.id = response.data.response.id;
-                    $scope.titulo = response.data.response.titulo;
-                    $scope.cuerpo = response.data.response.cuerpo;
-                    $scope.etiquetas = response.data.response.etiquetas;
-                    $scope.fecha = response.data.response.fecha;
+                    $scope.id = response.data.message.id;
+                    $scope.titulo = response.data.message.titulo;
+                    $scope.cuerpo = response.data.message.cuerpo;
+                    $scope.etiquetas = response.data.message.etiquetas;
+                    $scope.fecha = response.data.message.fecha;
                 });
 
         $scope.modificar = function () {

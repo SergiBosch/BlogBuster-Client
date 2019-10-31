@@ -9,7 +9,7 @@ var miControlador = miModulo.controller(
 
         promesasService.ajaxGetCount('post')
         .then(function (response) {
-            $scope.numPaginas = Math.ceil(response.data.response / $scope.rppActual);
+            $scope.numPaginas = Math.ceil(response.data.message / $scope.rppActual);
             if ($scope.paginaActual < 1) {
                 $window.location.href = "/blogbusterclient/BlogBuster-Client/#!/post/plist/1/" + $scope.rppActual;
             } else if ($scope.paginaActual > $scope.numPaginas) {
@@ -29,7 +29,7 @@ var miControlador = miModulo.controller(
             withCredentials: true,
             url: request
         }).then(function (response) {
-            $scope.tablaPosts = response.data.response;
+            $scope.tablaPosts = response.data.message;
         });
 
         $scope.showSelectValue = function (mySelect) {
