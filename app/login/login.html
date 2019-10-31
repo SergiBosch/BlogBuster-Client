@@ -13,18 +13,27 @@
                             <h3 class="mb-0">Iniciar sesión</h3>
                         </div>
                         <div class="card-body">
-                            <form class="form" role="form" autocomplete="off" id="formLogin" novalidate="" method="POST">
+                            <form class="form" role="form" autocomplete="off" id="formLogin" novalidate="" name="login"
+                                method="POST">
                                 <div class="form-group">
                                     <label for="uname1">Nombre de usuario:</label>
-                                    <input type="text" class="form-control form-control-lg rounded-0" name="uname1" id="uname1" required="">
-                                    <div class="invalid-feedback">Oops, you missed this one.</div>
+                                    <input type="text" class="form-control form-control-lg rounded-0"
+                                        id="uname1" ng-model="form.username" name="username"
+                                        ng-class="{'is-invalid':login.username.$invalid&&!login.username.$pristine}"
+                                        ng-pattern="/^[0-9a-zA-Z]+$/i" ng-required="true">
+                                        <span ng-show="login.username.$error.required" class="invalid-feedback">Te has olvidado del nombre de usuario</span>
                                 </div>
                                 <div class="form-group">
                                     <label>Contraseña:</label>
-                                    <input type="password" class="form-control form-control-lg rounded-0" id="pwd1" required="" autocomplete="new-password">
-                                    <div class="invalid-feedback">Enter your password too!</div>
+                                    <input type="password" class="form-control form-control-lg rounded-0" id="pwd1"
+                                        ng-model="form.password" name="password"
+                                        ng-class="{'is-invalid':login.password.$invalid&&!login.password.$pristine}"
+                                        ng-required="true" ng-minlength="6">
+                                    <span ng-show="login.password.$error.required" class="invalid-feedback">Te has olvidado de la contraseña</span>
+                                    <span ng-show="login.password.$error.minlength" class="invalid-feedback">La contraseña debe tener almenos 6 caracteres</span>
                                 </div>
-                                <button type="submit" class="btn btn-primary btn-lg float-right" id="btnLogin">Entrar</button>
+                                <button type="submit" class="btn btn-primary btn-lg float-right"
+                                    id="btnLogin" ng-disabled="login.$invalid">Entrar</button>
                             </form>
                         </div>
                         <!--/card-block-->

@@ -13,8 +13,8 @@
         <input type="text" ng-model="titulo" class="form-control"
           ng-class="{ 'is-invalid' : !userForm.titulo.$valid && !userForm.titulo.$pristine}" name="titulo"
           ng-required="true" value="{{post.titulo}}" />
-        <div class="invalid-feedback" ng-show="userForm.titulo.$error.pattern">
-          El operando introducido es incorrecto, sólo debe llevar números
+        <div class="invalid-feedback" ng-show="userForm.titulo.$error.required">
+          El campo titulo es obligatorio
         </div>
       </div>
     </div>
@@ -26,8 +26,8 @@
             class="form-control" ng-class="{ 'is-invalid' : !userForm.cuerpo.$valid && !userForm.cuerpo.$pristine}"
             name="cuerpo" ng-required="true" value="{{post.cuerpo}}"></textarea>
         </div>
-        <div class="invalid-feedback" ng-show="userForm.op1.$error.pattern">
-          El operando introducido es incorrecto, sólo debe llevar números
+        <div class="invalid-feedback" ng-show="userForm.cuerpo.$error.required">
+          El campo cuerpo es obligatorio
         </div>
       </div>
     </div>
@@ -37,8 +37,8 @@
         <input type="text" ng-model="etiquetas" class="form-control"
           ng-class="{ 'is-invalid' : !userForm.etiquetas.$valid && !userForm.etiquetas.$pristine}" name="etiquetas"
           ng-required="true" value="{{post.etiquetas}}" />
-        <div class="invalid-feedback" ng-show="userForm.etiquetas.$error.pattern">
-          El operando introducido es incorrecto, sólo debe llevar números
+        <div class="invalid-feedback" ng-show="userForm.etiquetas.$error.required">
+          El campo etiquetas es obligatorio
         </div>
       </div>
     </div>
@@ -48,14 +48,14 @@
         <input type="text" ng-model="fecha" class="form-control"
           ng-class="{ 'is-invalid' : !userForm.fecha.$valid && !userForm.fecha.$pristine}" name="fecha"
           ng-required="true" value="{{post.fecha}}" />
-        <div class="invalid-feedback" ng-show="userForm.fecha.$error.pattern">
-          El operando introducido es incorrecto, sólo debe llevar números
+        <div class="invalid-feedback" ng-show="userForm.fecha.$error.required">
+          El campo fecha es obligatorio
         </div>
       </div>
     </div>
     <br>
     <div class="row">
-      <button type="button" class="btn btn-primary" ng-click="modificar()">Actualizar los datos</button>
+      <button type="button" class="btn btn-primary" ng-click="modificar()" ng-disabled="userForm.$invalid"> Actualizar los datos</button>
     </div>
   </form>
 </div>
