@@ -6,6 +6,7 @@ var miControlador = miModulo.controller(
         $scope.colOrder = $routeParams.colOrder;
         $scope.order = $routeParams.order;
         $scope.controller = "plist";
+        $scope.user = $window.sessionStorage.getItem("username");
 
         promesasService.ajaxGetCount('post')
         .then(function (response) {

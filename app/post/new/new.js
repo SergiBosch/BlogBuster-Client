@@ -3,6 +3,7 @@ var miControlador = miModulo.controller(
     ['$scope', '$http', '$routeParams', '$window', function ($scope, $http, $routeParams, $window) {
         $scope.id = $routeParams.id
         $scope.controller = "new";
+        $scope.user = $window.sessionStorage.getItem("username");
 
         $scope.anyadir = function () {
             $http({

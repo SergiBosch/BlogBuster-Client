@@ -2,6 +2,7 @@ var miControlador = miModulo.controller(
     "postEditController",
     ['$scope', '$http', '$routeParams', '$window','promesasService', function ($scope, $http, $routeParams, $window, promesasService) {
         $scope.id = $routeParams.id;
+        $scope.user = $window.sessionStorage.getItem("username");
 
         promesasService.ajaxGet('post', $scope.id)
                 .then(function (response) {

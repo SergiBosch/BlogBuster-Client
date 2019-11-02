@@ -2,6 +2,7 @@ var miControlador = miModulo.controller(
     "postViewController",
     ['$scope', '$http', '$routeParams', '$window', function ($scope, $http, $routeParams, $window) {
         $scope.id = $routeParams.id;
+        $scope.user = $window.sessionStorage.getItem("username");
 
         $http({
             method: "GET",

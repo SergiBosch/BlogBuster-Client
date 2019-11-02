@@ -28,12 +28,11 @@
                                     <input type="password" class="form-control form-control-lg rounded-0" id="pwd1"
                                         ng-model="form.password" name="password"
                                         ng-class="{'is-invalid':login.password.$invalid&&!login.password.$pristine}"
-                                        ng-required="true" ng-minlength="6">
+                                        ng-required="true">
                                     <span ng-show="login.password.$error.required" class="invalid-feedback">Te has olvidado de la contraseña</span>
-                                    <span ng-show="login.password.$error.minlength" class="invalid-feedback">La contraseña debe tener almenos 6 caracteres</span>
                                 </div>
                                 <button type="submit" class="btn btn-primary btn-lg float-right"
-                                    id="btnLogin" ng-disabled="login.$invalid">Entrar</button>
+                                    id="btnLogin" ng-disabled="login.$invalid" ng-click="iniciarSesion()">Entrar</button>
                             </form>
                         </div>
                         <!--/card-block-->

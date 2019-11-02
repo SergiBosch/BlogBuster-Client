@@ -12,6 +12,15 @@ miModulo.factory('promesasService', ['$http',
             },
             ajaxGetPageOrder: function(objeto, paginaActual, rppActual, colOrder, order){
                 return $http.get('http://localhost:8081/blogbuster/json?ob='+ objeto +'&op=getpage&page=' + paginaActual + '&rpp=' + rppActual + '&order=' + colOrder + ',' + order);
+            },
+            ajaxLogin: function (username, password) {
+                return $http.get('http://localhost:8081/blogbuster/json?ob=usuario&op=login&username=' + username + '&password=' + password);
+            },
+            ajaxLogout: function () {
+                return $http.get('http://localhost:8081/blogbuster/json?ob=usuario&op=logout');
+            },
+            ajaxCheck: function () {
+                return $http.get('http://localhost:8081/blogbuster/json?ob=usuario&op=check');
             }
         }
     }])
