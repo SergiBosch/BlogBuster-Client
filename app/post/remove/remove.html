@@ -2,6 +2,7 @@
 <div class="container">
   <br>
   <br>
+  <div ng-show="!fallo&&!hecho">
   <h1>Datos del registro seleccionado</h1>
   <br>
   <br>
@@ -46,4 +47,19 @@
       <button type="button" class="btn btn-secondary btn-lg" ng-click="volver()">No</button>
     </div>
   </div>
+</div>
+<div ng-show="!fallo&&hecho">
+  <div class="alert alert-success text-center" role="alert">
+    <h2>Post publicado con éxito</h2>
+  </div>
+  <button class="btn btn-primary" ng-click="cerrar()">Cerrar</button>
+  <button class="btn btn-primary" ng-click="volver()">Volver</button>
+</div>
+<div ng-show="fallo&&hecho">
+  <div class="alert alert-danger text-center" role="alert">
+    <h2>Ha ocurrido un error al publicar el Post</h2>
+  </div>
+  <button class="btn btn-primary" ng-click="cerrar()">Cerrar</button>
+  <button class="btn btn-primary" ng-click="volver()">Volver</button>
+</div>
 </div>

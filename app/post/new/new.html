@@ -6,7 +6,7 @@
     <br>
     <br>
     <br>
-  <form name="userForm">
+  <form name="userForm" ng-show="!fallo&&!hecho">
     <div class="form-group row">
       <label for="titulo" class="col-sm-2 col-form-label">Titulo:</label>
       <div class="col-sm-10">
@@ -58,4 +58,20 @@
       <button type="button" class="btn btn-primary" ng-click="anyadir()" ng-disabled="userForm.$invalid">Publicar nuevo post</button>
     </div>
   </form>
+
+  <div ng-show="!fallo&&hecho">
+    <div class="alert alert-success text-center" role="alert">
+      <h2>Post publicado con éxito</h2>
+    </div>
+    <button class="btn btn-primary" ng-click="cerrar()">Cerrar</button>
+    <button class="btn btn-primary" ng-click="volver()">Volver</button>
+  </div>
+  <div ng-show="fallo&&hecho">
+    <div class="alert alert-danger text-center" role="alert">
+      <h2>Ha ocurrido un error al publicar el Post</h2>
+    </div>
+    <button class="btn btn-primary" ng-click="cerrar()">Cerrar</button>
+    <button class="btn btn-primary" ng-click="volver()">Volver</button>
+  </div>
+
 </div>

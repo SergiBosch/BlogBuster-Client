@@ -1,6 +1,6 @@
 var miControlador = miModulo.controller(
     "postHomeController",
-    ['$scope', '$http', '$routeParams', '$window','promesasService', 'sessionService', 'auth', function ($scope, $http, $routeParams, $window, promesasService, sessionService, auth) {
+    ['$scope', '$http', '$routeParams', '$window','promesasService', 'auth', function ($scope, $http, $routeParams, $window, promesasService, auth) {
         $scope.authStatus = auth.data.status;
         $scope.authUsername = auth.data.message;
         $scope.paginaActual = parseInt($routeParams.page);

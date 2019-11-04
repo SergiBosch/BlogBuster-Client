@@ -1,12 +1,12 @@
 <ng-include src="'./app/post/menu.html'"></ng-include>
 <div class="container">
-    <br>
-    <br>
-    <h1>Formulario del post</h1>
-    <br>
-    <br>
-    <br>
-  <form name="userForm">
+  <br>
+  <br>
+  <h1>Formulario del post</h1>
+  <br>
+  <br>
+  <br>
+  <form name="userForm" ng-show="!fallo&&!hecho">
     <div class="form-group row">
       <label for="titulo" class="col-sm-2 col-form-label">Titulo:</label>
       <div class="col-sm-10">
@@ -55,7 +55,31 @@
     </div>
     <br>
     <div class="row">
-      <button type="button" class="btn btn-primary" ng-click="modificar()" ng-disabled="userForm.$invalid"> Actualizar los datos</button>
+      <button type="button" class="btn btn-primary" ng-click="modificar()" ng-disabled="userForm.$invalid"> Actualizar
+        los datos</button>
     </div>
   </form>
+
+  <div ng-show="!fallo&&hecho">
+    <div class="alert alert-success text-center" role="alert">
+      <h2>El Post se ha actualizado con éxito</h2>
+    </div>
+    <button class="btn btn-primary" ng-click="cerrar()">Cerrar</button>
+    <button class="btn btn-primary" ng-click="volver()">Volver</button>
+  </div>
+  <div ng-show="fallo&&hecho">
+    <div class="alert alert-danger text-center" role="alert">
+      <h2>Ha ocurrido un error al actualizar el Post</h2>
+    </div>
+    <button class="btn btn-primary" ng-click="cerrar()">Cerrar</button>
+    <button class="btn btn-primary" ng-click="volver()">Volver</button>
+  </div>
+  <div ng-show="fallo&&!hecho">
+    <div class="alert alert-danger text-center" role="alert">
+      <h2>Ha habido un error al recibir datos del Post desde el servidor</h2>
+    </div>
+    <button class="btn btn-primary" ng-click="cerrar()">Cerrar</button>
+    <button class="btn btn-primary" ng-click="volver()">Volver</button>
+  </div>
+
 </div>
