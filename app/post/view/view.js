@@ -1,6 +1,6 @@
 var miControlador = miModulo.controller(
     "postViewController",
-    ['$scope', '$http', '$routeParams', '$window', function ($scope, $http, $routeParams, $window) {
+    ['$scope', '$http', '$routeParams', '$window', 'auth', function ($scope, $http, $routeParams, $window, auth) {
         $scope.authStatus = auth.data.status;
         $scope.authUsername = auth.data.message;
         $scope.id = $routeParams.id;
