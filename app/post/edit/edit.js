@@ -1,8 +1,13 @@
 var miControlador = miModulo.controller(
     "postEditController",
-    ['$scope', '$http', '$routeParams', '$window','promesasService', function ($scope, $http, $routeParams, $window, promesasService) {
+    ['$scope', '$http', '$routeParams', '$window','promesasService', 'auth', '$location',function ($scope, $http, $routeParams, $window, promesasService, auth, $location) {
+        if (auth.data.status != 200) {
+            $location.path('/login');
+        }
+        $scope.authStatus = auth.data.status;
+        $scope.authUsername = auth.data.message;
+        
         $scope.id = $routeParams.id;
-        $scope.user = $window.sessionStorage.getItem("username");
 
         promesasService.ajaxGet('post', $scope.id)
                 .then(function (response) {

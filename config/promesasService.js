@@ -14,7 +14,7 @@ miModulo.factory('promesasService', ['$http',
                 return $http.get('http://localhost:8081/blogbuster/json?ob='+ objeto +'&op=getpage&page=' + paginaActual + '&rpp=' + rppActual + '&order=' + colOrder + ',' + order);
             },
             ajaxLogin: function (username, password) {
-                return $http.get('http://localhost:8081/blogbuster/json?ob=usuario&op=login&username=' + username + '&password=' + password);
+                return $http.get('http://localhost:8081/blogbuster/json?ob=usuario&op=login&username=' + username + '&password=' + forge_sha256(password));
             },
             ajaxLogout: function () {
                 return $http.get('http://localhost:8081/blogbuster/json?ob=usuario&op=logout');

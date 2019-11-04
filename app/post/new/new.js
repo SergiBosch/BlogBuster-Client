@@ -1,9 +1,13 @@
 var miControlador = miModulo.controller(
     "postNewController",
-    ['$scope', '$http', '$routeParams', '$window', function ($scope, $http, $routeParams, $window) {
+    ['$scope', '$http', '$routeParams', '$window', '$location', 'auth', function ($scope, $http, $routeParams, $window, $location, auth) {
+        if (auth.data.status != 200) {
+            $location.path('/login');
+        }
+        $scope.authStatus = auth.data.status;
+        $scope.authUsername = auth.data.message;
         $scope.id = $routeParams.id
         $scope.controller = "new";
-        $scope.user = $window.sessionStorage.getItem("username");
 
         $scope.anyadir = function () {
             $http({

@@ -1,10 +1,11 @@
 var miControlador = miModulo.controller(
     "postHomeController",
-    ['$scope', '$http', '$routeParams', '$window','promesasService', 'sessionService', function ($scope, $http, $routeParams, $window, promesasService, sessionService) {
+    ['$scope', '$http', '$routeParams', '$window','promesasService', 'sessionService', 'auth', function ($scope, $http, $routeParams, $window, promesasService, sessionService, auth) {
+        $scope.authStatus = auth.data.status;
+        $scope.authUsername = auth.data.message;
         $scope.paginaActual = parseInt($routeParams.page);
         $scope.rppActual = parseInt($routeParams.pageRows);
         $scope.controller = "home";
-        $scope.user = $window.sessionStorage.getItem("username");
 
         promesasService.ajaxGetCount('post')
         .then(function (response) {

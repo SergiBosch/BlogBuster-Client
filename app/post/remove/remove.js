@@ -1,8 +1,12 @@
 var miControlador = miModulo.controller(
     "postRemoveController",
-    ['$scope', '$http', '$routeParams', '$window', function ($scope, $http, $routeParams, $window) {
+    ['$scope', '$http', '$routeParams', '$window', 'auth', '$location',function ($scope, $http, $routeParams, $window, auth, $location) {
+        if (auth.data.status != 200) {
+            $location.path('/login');
+        }
+        $scope.authStatus = auth.data.status;
+        $scope.authUsername = auth.data.message;
         $scope.id = $routeParams.id;
-        $scope.user = $window.sessionStorage.getItem("username");
 
         $http({
             method: "GET",

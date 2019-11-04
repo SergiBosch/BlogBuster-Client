@@ -1,12 +1,16 @@
 var miControlador = miModulo.controller(
     "postPlistController",
-    ['$scope', '$http', '$routeParams', '$window', 'promesasService', function ($scope, $http, $routeParams, $window, promesasService) {
+    ['$scope', '$http', '$routeParams', '$window', 'promesasService','auth', '$location',function ($scope, $http, $routeParams, $window, promesasService, auth, $location) {
+        if (auth.data.status != 200) {
+            $location.path('/login');
+        }
+        $scope.authStatus = auth.data.status;
+        $scope.authUsername = auth.data.message;
         $scope.paginaActual = parseInt($routeParams.page);
         $scope.rppActual = parseInt($routeParams.pageRows);
         $scope.colOrder = $routeParams.colOrder;
         $scope.order = $routeParams.order;
         $scope.controller = "plist";
-        $scope.user = $window.sessionStorage.getItem("username");
 
         promesasService.ajaxGetCount('post')
         .then(function (response) {
