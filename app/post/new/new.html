@@ -36,7 +36,7 @@
       <div class="col-sm-10">
         <input type="text" ng-model="etiquetas" class="form-control"
           ng-class="{ 'is-invalid' : !userForm.etiquetas.$valid && !userForm.etiquetas.$pristine}" name="etiquetas"
-          ng-required="true" value="{{post.etiquetas}}" />
+          ng-required="true" />
         <div class="invalid-feedback" ng-show="userForm.etiquetas.$error.required">
           El campo etiquetas es obligatorio
         </div>
@@ -45,17 +45,16 @@
     <div class="form-group row">
       <label for="fecha" class="col-sm-2 col-form-label">Fecha:</label>
       <div class="col-sm-10">
-        <input type="text" ng-model="fecha" class="form-control"
-          ng-class="{ 'is-invalid' : !userForm.fecha.$valid && !userForm.fecha.$pristine}" name="fecha"
-          ng-required="true" value="{{post.fecha}}" />
-        <div class="invalid-feedback" ng-show="userForm.fecha.$error.required">
-          El campo fecha es obligatorio
-        </div>
+
+        <md-datepicker ng-model="fecha" md-placeholder="Enter date"
+          ng-class="{ 'is-invalid' : !userForm.fecha.$valid && !userForm.fecha.$pristine}" name="fecha" value="{{post.fecha}}"
+          ng-required="true"></md-datepicker>
+
       </div>
     </div>
-    <br>
-    <div class="row">
-      <button type="button" class="btn btn-primary" ng-click="anyadir()" ng-disabled="userForm.$invalid">Publicar nuevo post</button>
+    <div class="float-right">
+
+      <button type="button" class="btn btn-primary" ng-click="anyadir()"  ng-disabled="userForm.$invalid">Publicar</button>
     </div>
   </form>
 

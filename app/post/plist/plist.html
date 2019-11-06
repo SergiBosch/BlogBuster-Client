@@ -80,7 +80,7 @@
         <tr ng-repeat="filas in tablaPosts">
           <th scope="row" class="text-center">{{filas.id}}</th>
           <td>{{filas.titulo}}</td>
-          <td>{{filas.cuerpo}}</td>
+          <td>{{filas.cuerpo | clipString}}</td>
           <td>{{filas.etiquetas}}</td>
           <td>{{filas.fecha}}</td>
           <td class="text-center">
