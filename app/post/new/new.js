@@ -14,7 +14,7 @@ var miControlador = miModulo.controller(
         $scope.anyadir = function () {
             $http({
                 method: "POST",
-                data: "data={\"titulo\": \"" + $scope.titulo + "\", \"cuerpo\": \"" + $scope.cuerpo + "\", \"etiquetas\": \"" + $scope.etiquetas + "\", \"fecha\": \"" + $scope.fecha + "\"}",
+                data: "data={\"titulo\": \"" + $scope.titulo + "\", \"cuerpo\": \"" + $scope.cuerpo + "\", \"etiquetas\": \"" + $scope.etiquetas + "\", \"fecha\": " + JSON.stringify($scope.fecha) + "}",
                 withCredentials: true,
                 headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
                 url: "http://localhost:8081/blogbuster/json?ob=post&op=insert"
